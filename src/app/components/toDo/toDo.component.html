@@ -1,0 +1,11 @@
+<div class="main-box">
+    <h2>TODO LIST</h2>
+    <p>A place for your todos</p>
+    <input class="filter-todo" placeholder="filter your todos" />
+    <div class="task-box" *ngFor="let item of todoItems; let i = index" [ngStyle]="{'text-decoration': item.completed ? 'line-through' : 'none'}">
+        {{i + 1}}. <button class="completed-task" *ngIf="!item.completed" (click)="item.completed = true"> Complete </button>
+        {{item.task}} <button class="remove-task" (click)="removeTask(item, i)"><i class="fas fa-times"></i></button>
+    </div>
+    <input class="add-todo" placeholder="add your todo" />
+    <button class="add-todo-button" (click)="addToDo()">Add</button>
+</div>
