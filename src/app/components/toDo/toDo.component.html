@@ -2,10 +2,11 @@
     <h2>TODO LIST</h2>
     <p>A place for your todos</p>
     <input class="filter-todo" placeholder="Filter your todos." [(ngModel)]="filterValue" (input)="filterToDo()" />
-    <div class="task-box" *ngFor="let item of filteredTodos; let i = index;" [ngStyle]="{'text-decoration': item.completed ? 'line-through' : 'none'}">
+    <div class="task-box" *ngFor="let item of filterToDo(); let i = index;" [ngStyle]="{'text-decoration': item.completed ? 'line-through' : 'none'}">
         {{i + 1}}. 
         <button class="completed-task" *ngIf="!item.completed" (click)="item.completed = true"> Complete </button>
-        {{item.task}} <button class="remove-task" (click)="removeTask(item, i)"><i class="fas fa-times"></i></button>
+        {{item.task}} 
+        <button class="remove-task" (click)="removeTask(item, i)"><i class="fas fa-times"></i></button>
     </div>
     <input class="add-todo" placeholder="Add your todo to the list" [(ngModel)]="value" />
     <button class="add-todo-button" (click)="addToDo()">Add</button>

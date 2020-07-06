@@ -44,6 +44,9 @@ export class ToDoComponent implements OnInit {
     }
 
     filterToDo(){
-        this.filteredTodos = this.todoItems.filter(item => item.task.includes(this.filterValue));
+        if(!this.filterValue){
+            return this.todoItems;
+        }
+        return this.todoItems.filter(item => item.task.includes(this.filterValue));
     }
 }
